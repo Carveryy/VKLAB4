@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редагування напою</title>
+    <link rel="stylesheet" th:href="@{/static/styles.css}">
+</head>
+<body>
+<h2>Редагувати напій</h2>
+<form th:action="@{/drinks/update/{id}(id=${drinkToEdit.id})}" th:object="${drinkToEdit}" method="post">
+    <input type="text" th:field="*{name}" required>
+    <input type="text" th:field="*{type}" required>
+    <input type="number" step="0.01" th:field="*{volume}" required>
+    <input type="number" step="0.01" th:field="*{price}" required>
+    <button type="submit">Зберегти зміни</button>
+</form>
+<br>
+<a th:href="@{/drinks}">Повернутися до списку</a>
+</body>
+</html>
