@@ -1,4 +1,4 @@
-package org.example.vklab4;
+package vklab4;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

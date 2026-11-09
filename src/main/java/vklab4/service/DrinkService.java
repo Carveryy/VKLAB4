@@ -1,9 +1,9 @@
-package org.example.vklab4.service;
+package vklab4.service;
 
-import org.example.vklab4.converters.DrinkConverter;
-import org.example.vklab4.Data.Drink;
-import org.example.vklab4.dto.DrinkDto;
-import org.example.vklab4.repository.DrinkRepository;
+import vklab4.converters.DrinkConverter;
+import vklab4.Data.Drink;
+import vklab4.dto.DrinkDto;
+import vklab4.repository.DrinkRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

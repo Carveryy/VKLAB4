@@ -1,4 +1,4 @@
-package org.example.vklab4;
+package vklab4;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

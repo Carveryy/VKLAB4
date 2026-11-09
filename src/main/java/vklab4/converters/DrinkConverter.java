@@ -1,7 +1,7 @@
-package org.example.vklab4.converters;
+package vklab4.converters;
 
-import org.example.vklab4.Data.Drink;
-import org.example.vklab4.dto.DrinkDto;
+import vklab4.Data.Drink;
+import vklab4.dto.DrinkDto;
 import org.springframework.stereotype.Component;
 
 @Component

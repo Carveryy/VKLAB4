@@ -1,26 +1,11 @@
-package org.example.vklab4.Data;
+package vklab4.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "drinks")
-public class Drink {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class DrinkDto {
     private Long id;
     private String name;
-    private String type; // Газований, сік, кава тощо
+    private String type;
     private Double volume;
     private Double price;
-
-    public Drink() {}
-
-    public Drink(String name, String type, Double volume, Double price) {
-        this.name = name;
-        this.type = type;
-        this.volume = volume;
-        this.price = price;
-    }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
