@@ -16,9 +16,22 @@ public class DrinkController {
     }
 
     @GetMapping
-    public String showDrinks(Model model) {
-        model.addAttribute("drinks", service.getAllDrinks());
+    public String showDrinks(@RequestParam(required = false) String name,
+                             @RequestParam(required = false) String type,
+                             @RequestParam(required = false) Double minVolume,
+                             @RequestParam(required = false) Double maxVolume,
+                             @RequestParam(required = false) Double minPrice,
+                             @RequestParam(required = false) Double maxPrice,
+                             Model model) {
+        model.addAttribute("drinks",
+                service.searchDrinks(name, type, minVolume, maxVolume, minPrice, maxPrice));
         model.addAttribute("newDrink", new DrinkDto());
+        model.addAttribute("filterName", name);
+        model.addAttribute("filterType", type);
+        model.addAttribute("filterMinVolume", minVolume);
+        model.addAttribute("filterMaxVolume", maxVolume);
+        model.addAttribute("filterMinPrice", minPrice);
+        model.addAttribute("filterMaxPrice", maxPrice);
         return "drinks-page";
     }
 
@@ -41,7 +54,7 @@ public class DrinkController {
         return "redirect:/drinks";
     }
 
-    @GetMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
     public String deleteDrink(@PathVariable("id") Long id) {
         service.deleteDrink(id);
         return "redirect:/drinks";

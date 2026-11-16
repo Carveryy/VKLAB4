@@ -25,6 +25,16 @@ public class DrinkService {
                 .collect(Collectors.toList());
     }
 
+    public List<DrinkDto> searchDrinks(String name, String type,
+                                       Double minVolume, Double maxVolume,
+                                       Double minPrice, Double maxPrice) {
+        String n = name == null ? "" : name.trim();
+        String t = type == null ? "" : type.trim();
+        return repository.search(n, t, minVolume, maxVolume, minPrice, maxPrice).stream()
+                .map(converter::toDto)
+                .collect(Collectors.toList());
+    }
+
     public DrinkDto getDrinkById(Long id) {
         Drink drink = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid drink Id:" + id));
         return converter.toDto(drink);
